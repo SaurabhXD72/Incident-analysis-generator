@@ -16,13 +16,14 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-const PORT = process.env.PORT || 3001; // Render provides PORT env var
+const PORT = process.env.PORT || 3001;
 
 app.use(cors());
 app.use(express.json());
 
 // Serve static files from React build
-app.use(express.static(path.join(__dirname, '../../client/dist')));
+const distPath = path.join(__dirname, '../../client/dist');
+app.use(express.static(distPath));
 
 // Rate Limiting
 const RATE_LIMIT_WINDOW = 60000; // 1 minute
@@ -47,7 +48,7 @@ app.use((req, res, next) => {
     next();
 });
 
-// Routes
+// API Routes
 app.get('/api/incidents', (req, res) => {
     const ids = InputLoader.getIncidentIds();
     const incidents = ids.map(id => {
@@ -116,10 +117,11 @@ app.get('/healthz', (req, res) => {
 });
 
 // Catch-all route to serve React app (must be last!)
-app.get('/:path*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../../client/dist/index.html'));
+// We use a Regex because Express 5 / path-to-regexp v8 crashes on string wildcards like '*'
+app.get(/^(?!\/api).*/, (req, res) => {
+    res.sendFile(path.join(distPath, 'index.html'));
 });
 
 app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+    console.log(`Server running on port ${PORT}`);
 });
