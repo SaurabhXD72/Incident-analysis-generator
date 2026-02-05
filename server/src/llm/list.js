@@ -1,6 +1,6 @@
 import fetch from "node-fetch";
 
-const API_KEY = "nothing to see here";
+const API_KEY = "AIzaSyC1ZRSXYSkCiqDDTZBijuC7EX96CzYvRFM";
 
 async function main() {
     const res = await fetch(

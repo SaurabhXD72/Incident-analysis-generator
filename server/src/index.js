@@ -10,10 +10,10 @@ import ContextComplexityAnalyzer from './engines/ContextComplexityAnalyzer.js';
 import ModelSelectionEngine from './engines/ModelSelectionEngine.js';
 import LLMClient from './llm/LLMClient.js';
 
-dotenv.config();
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+dotenv.config({ path: path.join(__dirname, '../.env') });
 
 const app = express();
 const PORT = process.env.PORT || 3001;

@@ -14,7 +14,8 @@ class LLMClient {
             try {
                 return await this.callGemini(facts);
             } catch (e) {
-                console.error("Gemini Failed:", e);
+                console.error("Gemini Critical Error:", e.message);
+                if (e.stack) console.error(e.stack);
                 // Fallthrough to mock
             }
         }
