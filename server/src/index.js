@@ -47,23 +47,6 @@ app.use((req, res, next) => {
     next();
 });
 
-// Root route
-app.get('/', (req, res) => {
-    res.json({
-        name: 'Incident Analysis Generator API',
-        version: '1.0.0',
-        status: 'running',
-        endpoints: {
-            health: '/healthz',
-            incidents: '/api/incidents',
-            incidentById: '/api/incidents/:id',
-            deterministicAnalysis: 'POST /api/analyze/deterministic',
-            aiAnalysis: 'POST /api/analyze/ai'
-        },
-        docs: 'https://github.com/SaurabhXD72/Incident-analysis-generator'
-    });
-});
-
 // Routes
 app.get('/api/incidents', (req, res) => {
     const ids = InputLoader.getIncidentIds();
