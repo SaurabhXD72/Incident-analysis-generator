@@ -116,7 +116,7 @@ app.get('/healthz', (req, res) => {
 });
 
 // Catch-all route to serve React app (must be last!)
-app.get('(.*)', (req, res) => {
+app.get('/:path*', (req, res) => {
     res.sendFile(path.join(__dirname, '../../client/dist/index.html'));
 });
 
