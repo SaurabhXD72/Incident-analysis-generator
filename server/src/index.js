@@ -16,7 +16,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3001; // Render provides PORT env var
 
 app.use(cors());
 app.use(express.json());
@@ -42,6 +42,23 @@ app.use((req, res, next) => {
         }
     }
     next();
+});
+
+// Root route
+app.get('/', (req, res) => {
+    res.json({
+        name: 'Incident Analysis Generator API',
+        version: '1.0.0',
+        status: 'running',
+        endpoints: {
+            health: '/healthz',
+            incidents: '/api/incidents',
+            incidentById: '/api/incidents/:id',
+            deterministicAnalysis: 'POST /api/analyze/deterministic',
+            aiAnalysis: 'POST /api/analyze/ai'
+        },
+        docs: 'https://github.com/SaurabhXD72/Incident-analysis-generator'
+    });
 });
 
 // Routes
