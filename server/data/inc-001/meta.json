@@ -1,0 +1,9 @@
+{
+  "id": "inc-001",
+  "title": "Database CPU Spike & Query Timeouts",
+  "severity": "critical",
+  "service": "payment-service",
+  "status": "resolved",
+  "primary_metric": "cpu_usage",
+  "timestamp": "2023-10-27T10:00:00Z"
+}

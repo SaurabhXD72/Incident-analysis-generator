@@ -1,0 +1,8 @@
+[INFO] 09:00:01 Starting pod auth-canary-78d
+[INFO] 09:00:05 Listening on port 8080
+[ERROR] 09:00:06 ReferenceError: jwt_secret is not defined at /app/src/auth.js:45:12
+[ERROR] 09:00:06 Process exited with code 1
+[INFO] 09:00:08 Restarting pod...
+[ERROR] 09:00:12 ReferenceError: jwt_secret is not defined at /app/src/auth.js:45:12
+[ERROR] 09:00:15 Health check failed: 503 Service Unavailable
+[WARN] 09:00:20 Load balancer removing unhealthy backend

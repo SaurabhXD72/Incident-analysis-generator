@@ -1,0 +1,9 @@
+{
+  "id": "inc-005",
+  "title": "Checkout Failure (Payment Gateway Timeout)",
+  "severity": "critical",
+  "service": "checkout-service",
+  "status": "resolved",
+  "primary_metric": "error_rate",
+  "timestamp": "2024-02-20T20:00:00Z"
+}

@@ -1,0 +1,12 @@
+[INFO] 10:00:01 Sending batch push notifications (id: campaign_fall_sale)
+[INFO] 10:01:45 Incoming request rate increasing check_payments
+[WARN] 10:04:12 Database connection pool utilization at 85%
+[ERROR] 10:05:22 Query execution timeout (UserTable) - duration: 5002ms
+[ERROR] 10:05:23 Query execution timeout (UserTable) - duration: 5100ms
+[ERROR] 10:05:25 Connection reset by peer (DB_PRIMARY)
+[ERROR] 10:05:45 PaymentTransaction failed: DB_TIMEOUT
+[WARN] 10:06:00 High latency detected in POST /checkout
+[ERROR] 10:07:11 Query execution timeout (UserTable) - duration: 5500ms
+[INFO] 10:08:30 User 'admin' logged in
+[INFO] 10:12:15 Switching read-heavy traffic to replica-02
+[INFO] 10:14:00 Connection pool utilization dropping to 60%

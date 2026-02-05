@@ -1,0 +1,27 @@
+[
+  {
+    "timestamp": "14:00:00",
+    "event": "New version v2.4.0 deployed",
+    "type": "trigger"
+  },
+  {
+    "timestamp": "16:30:00",
+    "event": "Memory usage trend line deviation detected",
+    "type": "info"
+  },
+  {
+    "timestamp": "18:15:00",
+    "event": "Pod restart count > 5 (Loop)",
+    "type": "alert"
+  },
+  {
+    "timestamp": "18:20:00",
+    "event": "Rolled back to v2.3.9",
+    "type": "mitigation"
+  },
+  {
+    "timestamp": "18:25:00",
+    "event": "Service stable",
+    "type": "resolution"
+  }
+]

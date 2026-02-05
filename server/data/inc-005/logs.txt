@@ -1,0 +1,9 @@
+[INFO] 20:00:15 Requesting transaction via StripeGateway
+[WARN] 20:00:45 Invoice 88231 timeout waiting for StripeGateway
+[WARN] 20:01:15 Invoice 88232 timeout waiting for StripeGateway
+[ERROR] 20:05:00 Failed to spawn new thread: Resource temporarily unavailable
+[ERROR] 20:05:05 CheckoutController crashed
+[INFO] 20:08:00 CircuitBreaker: Opening circuit for StripeGateway
+[INFO] 20:08:01 Rejecting transactions immediately (Fail Fast)
+[INFO] 20:30:05 CircuitBreaker: Half-open probing...
+[INFO] 20:30:10 Successful transaction. Closing circuit.

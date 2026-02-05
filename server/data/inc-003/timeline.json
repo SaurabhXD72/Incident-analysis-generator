@@ -1,0 +1,22 @@
+[
+  {
+    "timestamp": "09:00:00",
+    "event": "Canary deploy started (10% traffic)",
+    "type": "trigger"
+  },
+  {
+    "timestamp": "09:00:15",
+    "event": "Error rate spikes to 100% on canary nodes",
+    "type": "alert"
+  },
+  {
+    "timestamp": "09:00:45",
+    "event": "Automated circuit breaker tripped",
+    "type": "info"
+  },
+  {
+    "timestamp": "09:01:30",
+    "event": "Canary aborted / Rolled back",
+    "type": "mitigation"
+  }
+]

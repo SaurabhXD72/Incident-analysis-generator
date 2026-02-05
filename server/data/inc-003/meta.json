@@ -1,0 +1,9 @@
+{
+  "id": "inc-003",
+  "title": "Auth Service 500s after Canary Deploy",
+  "severity": "critical",
+  "service": "auth-service",
+  "status": "resolved",
+  "primary_metric": "error_rate",
+  "timestamp": "2023-12-05T09:00:00Z"
+}

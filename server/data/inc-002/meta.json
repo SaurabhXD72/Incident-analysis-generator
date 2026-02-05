@@ -1,0 +1,9 @@
+{
+  "id": "inc-002",
+  "title": "Image Processor OOM Crash Loop",
+  "severity": "high",
+  "service": "media-processor",
+  "status": "resolved",
+  "primary_metric": "memory_usage",
+  "timestamp": "2023-11-15T14:00:00Z"
+}

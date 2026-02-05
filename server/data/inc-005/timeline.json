@@ -1,0 +1,27 @@
+[
+  {
+    "timestamp": "20:00:00",
+    "event": "External Payment Vendor outage reported",
+    "type": "trigger"
+  },
+  {
+    "timestamp": "20:02:00",
+    "event": "Checkout requests hanging (30s)",
+    "type": "info"
+  },
+  {
+    "timestamp": "20:05:00",
+    "event": "Thread pool exhaustion",
+    "type": "alert"
+  },
+  {
+    "timestamp": "20:08:00",
+    "event": "Circuit breaker opened for PaymentVendor",
+    "type": "mitigation"
+  },
+  {
+    "timestamp": "20:30:00",
+    "event": "Vendor resolved status",
+    "type": "resolution"
+  }
+]

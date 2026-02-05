@@ -1,0 +1,27 @@
+[
+  {
+    "timestamp": "15:00:00",
+    "event": "Redis cluster restart (Maintenance)",
+    "type": "trigger"
+  },
+  {
+    "timestamp": "15:01:00",
+    "event": "Cache hit rate drops to 0%",
+    "type": "info"
+  },
+  {
+    "timestamp": "15:01:30",
+    "event": "Database connection count maxed out",
+    "type": "alert"
+  },
+  {
+    "timestamp": "15:05:00",
+    "event": "Rate limiting applied to non-critical paths",
+    "type": "mitigation"
+  },
+  {
+    "timestamp": "15:10:00",
+    "event": "Cache warmed up",
+    "type": "resolution"
+  }
+]

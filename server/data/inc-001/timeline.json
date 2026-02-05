@@ -1,0 +1,37 @@
+[
+  {
+    "timestamp": "10:00:00",
+    "event": "Marketing push notification sent (Campaign: Fall Sale)",
+    "type": "trigger"
+  },
+  {
+    "timestamp": "10:02:00",
+    "event": "Traffic spikes to 3x normal load",
+    "type": "info"
+  },
+  {
+    "timestamp": "10:05:00",
+    "event": "Alert: Database CPU > 90%",
+    "type": "alert"
+  },
+  {
+    "timestamp": "10:06:30",
+    "event": "Payment API latency p99 > 3s",
+    "type": "alert"
+  },
+  {
+    "timestamp": "10:08:00",
+    "event": "On-call engineer ack",
+    "type": "human"
+  },
+  {
+    "timestamp": "10:12:00",
+    "event": "Enabled read-replica routing",
+    "type": "mitigation"
+  },
+  {
+    "timestamp": "10:15:00",
+    "event": "CPU normalized",
+    "type": "resolution"
+  }
+]
