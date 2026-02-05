@@ -23,6 +23,11 @@ app.use(express.json());
 
 // Serve static files from React build (moved to public/ during build)
 const distPath = path.join(__dirname, '../public');
+import fs from 'fs';
+if (!fs.existsSync(distPath)) {
+    console.error(`FATAL: Static files directory not found at ${distPath}`);
+    console.error(`Make sure 'npm run build' was executed successfully.`);
+}
 app.use(express.static(distPath));
 
 // Rate Limiting
