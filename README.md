@@ -2,7 +2,7 @@
 
 A production-grade **Post-Mortem Generator** that combines deterministic signal extraction with AI-powered root cause analysis. Built with a dual-layer architecture that separates manual analysis from AI reasoning, ensuring defensible and transparent incident reports.
 
-![Demo](./demo.png)
+![Demo](./demo.webp)
 
 ## 🎯 Features
 
