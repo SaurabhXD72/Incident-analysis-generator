@@ -21,6 +21,9 @@ const PORT = process.env.PORT || 3001; // Render provides PORT env var
 app.use(cors());
 app.use(express.json());
 
+// Serve static files from React build
+app.use(express.static(path.join(__dirname, '../../client/dist')));
+
 // Rate Limiting
 const RATE_LIMIT_WINDOW = 60000; // 1 minute
 const MAX_REQUESTS = 5;
@@ -127,6 +130,11 @@ app.post('/api/analyze/ai', async (req, res) => {
 // Health check endpoint for Render
 app.get('/healthz', (req, res) => {
     res.status(200).json({ status: 'ok', timestamp: new Date().toISOString() });
+});
+
+// Catch-all route to serve React app (must be last!)
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../../client/dist/index.html'));
 });
 
 app.listen(PORT, () => {
