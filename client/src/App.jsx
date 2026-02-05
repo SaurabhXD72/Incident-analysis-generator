@@ -7,7 +7,7 @@ function App() {
   const [incidents, setIncidents] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3001/api/incidents')
+    fetch('/api/incidents')
       .then(res => res.json())
       .then(data => setIncidents(data))
       .catch(err => console.error("Failed to load incidents", err));
