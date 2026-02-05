@@ -14,7 +14,7 @@ function IncidentView() {
         setIncident(null);
         setAnalysis(null);
         setAnalysisState('idle');
-        fetch(`http://localhost:3001/api/incidents/${id}`)
+        fetch(`https://incident-analysis-generator.onrender.com/api/incidents/${id}`)
             .then(res => res.json())
             .then(data => setIncident(data));
     }, [id]);
@@ -43,7 +43,7 @@ function IncidentView() {
         }
 
         try {
-            const res = await fetch('http://localhost:3001/api/analyze/ai', {
+            const res = await fetch('https://incident-analysis-generator.onrender.com/api/analyze/ai', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ id })
