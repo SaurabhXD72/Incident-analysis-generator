@@ -21,8 +21,8 @@ const PORT = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json());
 
-// Serve static files from React build
-const distPath = path.join(__dirname, '../../client/dist');
+// Serve static files from React build (moved to public/ during build)
+const distPath = path.join(__dirname, '../public');
 app.use(express.static(distPath));
 
 // Rate Limiting
