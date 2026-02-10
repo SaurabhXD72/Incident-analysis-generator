@@ -10,34 +10,16 @@ import ContextComplexityAnalyzer from './engines/ContextComplexityAnalyzer.js';
 import ModelSelectionEngine from './engines/ModelSelectionEngine.js';
 import LLMClient from './llm/LLMClient.js';
 
+dotenv.config();
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Load env vars
-dotenv.config(); // Default load from root
-dotenv.config({ path: path.join(__dirname, '../.env') }); // Secondary load from server/.env
-
-// Startup Diagnostics
-console.log('--- Environment Check ---');
-console.log(`PORT: ${process.env.PORT || 3001}`);
-console.log(`GEMINI_API_KEY: ${process.env.GEMINI_API_KEY ? '✅ Present (' + process.env.GEMINI_API_KEY.substring(0, 6) + '...)' : '❌ MISSING'}`);
-console.log(`GEMINI_MODEL: ${process.env.GEMINI_MODEL || '❌ MISSING'}`);
-console.log('-------------------------');
-
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3001; // Render provides PORT env var
 
 app.use(cors());
 app.use(express.json());
-
-// Serve static files from React build (moved to public/ during build)
-const distPath = path.join(__dirname, '../public');
-import fs from 'fs';
-if (!fs.existsSync(distPath)) {
-    console.error(`FATAL: Static files directory not found at ${distPath}`);
-    console.error(`Make sure 'npm run build' was executed successfully.`);
-}
-app.use(express.static(distPath));
 
 // Rate Limiting
 const RATE_LIMIT_WINDOW = 60000; // 1 minute
@@ -62,7 +44,24 @@ app.use((req, res, next) => {
     next();
 });
 
-// API Routes
+// Root route
+app.get('/', (req, res) => {
+    res.json({
+        name: 'Incident Analysis Generator API',
+        version: '1.0.0',
+        status: 'running',
+        endpoints: {
+            health: '/healthz',
+            incidents: '/api/incidents',
+            incidentById: '/api/incidents/:id',
+            deterministicAnalysis: 'POST /api/analyze/deterministic',
+            aiAnalysis: 'POST /api/analyze/ai'
+        },
+        docs: 'https://github.com/SaurabhXD72/Incident-analysis-generator'
+    });
+});
+
+// Routes
 app.get('/api/incidents', (req, res) => {
     const ids = InputLoader.getIncidentIds();
     const incidents = ids.map(id => {
@@ -130,12 +129,8 @@ app.get('/healthz', (req, res) => {
     res.status(200).json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
-// Catch-all route to serve React app (must be last!)
-// We use a Regex because Express 5 / path-to-regexp v8 crashes on string wildcards like '*'
-app.get(/^(?!\/api).*/, (req, res) => {
-    res.sendFile(path.join(distPath, 'index.html'));
-});
+
 
 app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+    console.log(`Server running on http://localhost:${PORT}`);
 });

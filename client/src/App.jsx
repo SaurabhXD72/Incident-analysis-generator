@@ -7,7 +7,8 @@ function App() {
   const [incidents, setIncidents] = useState([]);
 
   useEffect(() => {
-    fetch('/api/incidents')
+    const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+    fetch(`${apiUrl}/api/incidents`)
       .then(res => res.json())
       .then(data => setIncidents(data))
       .catch(err => console.error("Failed to load incidents", err));

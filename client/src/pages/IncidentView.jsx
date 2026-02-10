@@ -14,7 +14,8 @@ function IncidentView() {
         setIncident(null);
         setAnalysis(null);
         setAnalysisState('idle');
-        fetch(`/api/incidents/${id}`)
+        const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+        fetch(`${apiUrl}/api/incidents/${id}`)
             .then(res => res.json())
             .then(data => setIncident(data));
     }, [id]);
@@ -43,7 +44,8 @@ function IncidentView() {
         }
 
         try {
-            const res = await fetch('/api/analyze/ai', {
+            const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+            const res = await fetch(`${apiUrl}/api/analyze/ai`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ id })
